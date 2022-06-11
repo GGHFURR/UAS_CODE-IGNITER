@@ -1,0 +1,142 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 12, 2022 at 01:22 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `login_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kontakkami`
+--
+
+CREATE TABLE `kontakkami` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `subjek` varchar(200) NOT NULL,
+  `pesan` text NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kontakkami`
+--
+
+INSERT INTO `kontakkami` (`id`, `nama`, `email`, `subjek`, `pesan`, `created_at`, `updated_at`) VALUES
+(1, 'aceng', 'fadhlanghafur1509@upi.edu', 'memberi semangat', 'asw', NULL, NULL),
+(2, 'Raisyad Sembrono', 'raisyad@upi.edun', 'komplain', 'admin ramah bintang satu', '2022-05-19 20:45:45', '2022-05-19 20:45:45'),
+(3, '', 'raisyadkipli@upi.edun', 'terimakasih', 'mantap pelayanan nya gais', '2022-05-19 14:00:49', '2022-05-19 14:00:49'),
+(4, 'raisyad', 'raisyadkipli@upi.edun', 'terimakasih', 'aadafasfsdgfsdg', '2022-05-19 14:02:57', '2022-05-19 14:02:57'),
+(5, 'raisyad', 'raisyadkipli@upi.edun', 'terimakasih', 'asassasasasa', '2022-05-19 14:03:54', '2022-05-19 14:03:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(200) DEFAULT NULL,
+  `product_price` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`product_id`, `product_name`, `product_price`) VALUES
+(1, 'Product 1', 2000),
+(2, 'Product 2', 5000),
+(3, 'Product 3', 4000),
+(4, 'Product 4', 6000),
+(5, 'Product 5', 7000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_password` varchar(200) NOT NULL,
+  `user_created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_password`, `user_created_at`) VALUES
+(1, 'fadhlan', 'fadhlanghafur1509@gmail.com', '$2y$10$scqNOKGdF4RhYCqJYcTdKuhAshzeaXNk.DS9JYWcDkzWUo.QAoZhq', '2022-06-11 15:10:03');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `kontakkami`
+--
+ALTER TABLE `kontakkami`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `kontakkami`
+--
+ALTER TABLE `kontakkami`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
